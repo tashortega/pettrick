@@ -1,0 +1,22 @@
+int gled = 9;
+int rled = 6;
+int gbright;
+int rbright;
+int phot = A0;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(gled,OUTPUT);
+  pinMode(rled,OUTPUT);
+
+}
+
+void loop() {
+  int phot = analogRead(A0);
+  Serial.println(phot);
+gbright = map(phot,0,1023,0,255);
+rbright = map(phot,0,1023,255,0);
+  analogWrite(gled,gbright);
+  analogWrite(rled,rbright);
+  
+}
